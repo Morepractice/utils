@@ -1,6 +1,8 @@
 <?php
 
 namespace Zane\Tests;
+require_once __DIR__ . '/../vendor/autoload.php';
+define("ROOT_PATH", dirname(__DIR__) . "/");
 
 use PHPUnit\Framework\TestCase;
 use Zane\Utils\Ary;
@@ -1133,7 +1135,7 @@ EOT;
      * @param array $array
      * @depends testToJson
      */
-    public function testFromJson($array)
+    public function testFromJson(array $array)
     {
         list($ary, $json, $ary2, $json2) = $array;
         $this->assertEquals($ary->val(), Ary::fromJson($json)->val());
