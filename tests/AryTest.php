@@ -95,7 +95,7 @@ class AryTest extends TestCase
         $array = ['products.desk' => ['price' => 100]];
         $this->assertTrue(Ary::new($array)->has('products.desk'));
         $this->assertFalse(Ary::new($array)->has('products.empty'));
-        $this->assertFalse(Ary::new($array)->has('products'));
+        $this->assertFalse(Ary::new($array)->has('products'));//因为products不是数组的key
 
         $array = ['products' =>['desk' => ['price' => 100]]];
         $this->assertTrue(Ary::new($array)->has('products'));

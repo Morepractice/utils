@@ -192,7 +192,7 @@ class Ary implements IteratorAggregate, ArrayAccess, Countable, JsonSerializable
      */
     public function only(...$keys)
     {
-        $val = array_intersect_key($this->val, array_flip($keys));
+        $val = array_intersect_key($this->val, array_flip($keys)); //使用数组反转和相同key的交集
 
         return static::new($val);
     }
