@@ -110,7 +110,7 @@ class Ary implements IteratorAggregate, ArrayAccess, Countable, JsonSerializable
         foreach ($keys as $key) {
             if (is_array($array) && array_key_exists($key, $array)) {
                 $array = $array[$key];
-            } elseif ($array instanceof static && array_key_exists($key, $array->val())) {
+            } elseif ($array instanceof static && array_key_exists($key, $array->val())) {//数组包含Ary对象？
                 $array = $array[$key];
             } else {
                 return $default;

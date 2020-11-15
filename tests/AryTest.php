@@ -62,8 +62,8 @@ class AryTest extends TestCase
         $this->assertEquals(['price' => 100], $ary->get('products.desk')->val());
 
         $ary = Ary::new(['foo', 'bar']);
-        $this->assertEquals($ary->val(), $ary->get());
-        $this->assertEquals('default', $ary->get('?', 'default'));
+        $this->assertEquals($ary->val(), $ary->get());//get方法不传key返回原值
+        $this->assertEquals('default', $ary->get('?', 'default'));//get不到key返回默认值
     }
 
     /**
