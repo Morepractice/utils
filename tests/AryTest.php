@@ -12,8 +12,7 @@ class AryTest extends TestCase
     public function testNew()
     {
         $empty = Ary::new([]);
-
-        $this->assertEmpty($empty->val());
+        $this->assertEmpty($empty->val());  //与empty函数判定一致
 
         $array = [1, 2, 3];
         $ary = Ary::new($array);
@@ -29,13 +28,15 @@ class AryTest extends TestCase
         $this->assertEquals($arrayA, $ary->val());
 
         $arrayB = [1, 2, 3, 4];
-        $ary->val($arrayB);
+        $ary->val($arrayB);  //val方法既可以赋制，也可以取值（相当于set,get）
 
         $this->assertEquals($arrayB, $ary->val());
     }
 
     public function testAccessible()
     {
+        //测试value是否能以数组的形式访问 实现了ArrayAccess的对象，可以像数组形式访问变量；
+        //isset=>offsetExists($offset),unset=>offsetUnset($offset),offsetGet($offset)=>$arr["foo"],offsetSet($offset,$value)=>$arr["foo"] = 1
         $this->assertTrue(Ary::accessible([]));
         $this->assertTrue(Ary::accessible(Ary::new([])));
         $this->assertFalse(Ary::accessible(null));
