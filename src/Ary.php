@@ -159,7 +159,7 @@ class Ary implements IteratorAggregate, ArrayAccess, Countable, JsonSerializable
      *
      * @return bool
      */
-    public function has(string ...$dotKeys): bool
+    public function has(string ...$dotKeys): bool   //传过来的多个变量变成一个数组
     {
         foreach ($dotKeys as $dotKey) {
             if (array_key_exists($dotKey, $this->val)) {
