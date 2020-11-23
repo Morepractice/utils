@@ -473,6 +473,9 @@ class AryTest extends TestCase
         Ary::new($array)->where(null, '===', 2)->val();
     }
 
+    /**
+     * array_count_values计算每个值的个数
+     */
     public function testCountValues()
     {
         $array = [1, 'hello', 1, 'world', 'hello'];
