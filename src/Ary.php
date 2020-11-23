@@ -449,12 +449,21 @@ class Ary implements IteratorAggregate, ArrayAccess, Countable, JsonSerializable
         $array = [];
         foreach ($this->val as $rowKey => $rowVal) {
             if (is_array($rowVal) || $rowVal instanceof static) {
-                $row = [];
-                foreach ($rowVal as $colKey => $colVal) {
-                    if (in_array($colKey, $columnKeys)) {
-                        $row[$colKey] = $colVal;
-                    }
-                }
+                //模仿1
+//                if($rowVal instanceof static)$rowVal = $rowVal->val();
+//                $row = array_intersect_key($rowVal,array_flip($columnKeys));
+
+                //模仿2
+                if($rowVal instanceof static)$rowVal = $rowVal->val();
+                $row = static::new($rowVal)->only(...$columnKeys)->val();
+
+//                $row = [];
+//                foreach ($rowVal as $colKey => $colVal) {
+//                    if (in_array($colKey, $columnKeys)) {
+//                        $row[$colKey] = $colVal;
+//                    }
+//                }
+
                 if (is_null($indexKey) || !isset($rowVal[$indexKey])) {
                     $array[] = $row;
                 } else {

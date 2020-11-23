@@ -267,6 +267,11 @@ class AryTest extends TestCase
         $this->assertEquals('b', $ary->lastKey());
     }
 
+    /**
+     * array_slice($arr,offset,len,default=false)当default为false时会重组数字索引,从0开始
+     * 当offset为负数时，从后往前为-1，-2 ...
+     * 当len为null返回offset后所有的
+     */
     public function testLimit()
     {
         $array = ['a' => 1, 'b' => 3, 99 => 4, 5, 6];
@@ -302,6 +307,9 @@ class AryTest extends TestCase
         $this->assertEquals(array_slice($array, -1, 0), $ary->slice(-1, 0)->val());
     }
 
+    /**
+     * array_chunk返回$size大小的新多一维数组
+     */
     public function testChunk()
     {
         $array = [1, 2, 3, 4, 5, 6];
