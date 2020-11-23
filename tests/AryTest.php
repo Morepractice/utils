@@ -355,11 +355,9 @@ class AryTest extends TestCase
         $this->assertEquals($col, $val);
     }
 
-    /**
-     * @expectedException \Zane\Utils\Exceptions\AryKeyTypeException
-     */
     public function testSelect()
     {
+        $this->expectException(\Zane\Utils\Exceptions\AryKeyTypeException::class);
         $array = [
             ['id' => 1, 'name' => 'a', 'val' => 'x'],
             ['id' => 2, 'name' => 'b', 'val' => 'y'],
@@ -406,11 +404,9 @@ class AryTest extends TestCase
         $this->assertEquals($data, Ary::new($AryArray)->select(['name', 'val'], []));
     }
 
-    /**
-     * @expectedException \Zane\Utils\Exceptions\AryKeyTypeException
-     */
     public function testWhere()
     {
+        $this->expectException(\Zane\Utils\Exceptions\AryKeyTypeException::class);
         $array = [
             ['id' => 1, 'name' => 'a', 'val' => 'x'],
             ['id' => 2, 'name' => 'b', 'val' => 'y'],
@@ -502,11 +498,9 @@ class AryTest extends TestCase
         $this->assertEquals(in_array('12.4', $array, true), $ary->exist('12.4', true));
     }
 
-    /**
-     * @expectedException \Zane\Utils\Exceptions\AryKeyTypeException
-     */
     public function testExistKey()
     {
+        $this->expectException(\Zane\Utils\Exceptions\AryKeyTypeException::class);
         $array = ['first' => null, 'second' => 2, 3];
         $ary = Ary::new($array);
 
@@ -519,11 +513,9 @@ class AryTest extends TestCase
         $ary->existKey(null);
     }
 
-    /**
-     * @expectedException \Zane\Utils\Exceptions\AryKeyTypeException
-     */
     public function testIsSet()
     {
+        $this->expectException(\Zane\Utils\Exceptions\AryKeyTypeException::class);
         $array = ['first' => null, 'second' => 2, 3];
         $ary = Ary::new($array);
 
@@ -1073,11 +1065,9 @@ class AryTest extends TestCase
         $this->assertEquals(array_sum($array), $ary->sum());
     }
 
-    /**
-     * @expectedException \Zane\Utils\Exceptions\AryOutOfRangeException
-     */
     public function testRand()
     {
+        $this->expectException(\Zane\Utils\Exceptions\AryOutOfRangeException::class);
         $array = ['hello' => 1, 'world' => 2, 'x' => 3, 4, 5, 6];
         $ary = Ary::new($array);
 
@@ -1089,11 +1079,9 @@ class AryTest extends TestCase
         $this->assertEmpty(Ary::new([])->rand(1));
     }
 
-    /**
-     * @expectedException \Zane\Utils\Exceptions\AryOutOfRangeException
-     */
     public function testRandVal()
     {
+        $this->expectException(\Zane\Utils\Exceptions\AryOutOfRangeException::class);
         $array = ['hello' => 1, 'world' => 2, 'x' => 3, 4, 5, 6];
         $ary = Ary::new($array);
 
@@ -1102,11 +1090,9 @@ class AryTest extends TestCase
         $this->assertEmpty(Ary::new([])->randVal());
     }
 
-    /**
-     * @expectedException \Zane\Utils\Exceptions\AryOutOfRangeException
-     */
     public function testRandKey()
     {
+        $this->expectException(\Zane\Utils\Exceptions\AryOutOfRangeException::class);
         $array = ['hello' => 1, 'world' => 2, 'x' => 3, 4, 5, 6];
         $ary = Ary::new($array);
 
