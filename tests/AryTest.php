@@ -174,11 +174,13 @@ class AryTest extends TestCase
 
         $this->assertEquals(array_keys($array), $ary->keys()->val());
         // 筛选数组值
+        //search_value只会找到包含该键值的键名
         $this->assertEquals(array_keys($array, 1, true), $ary->keys(1, true)->val());
         $this->assertEquals(array_keys($array, null, false), $ary->keys(null, false)->val());
         $this->assertEquals(array_keys($array, null, true), $ary->keys(null, true)->val());
     }
 
+    //array_change_key_case将数组键名大写或小写CASE_UPPER|CASE_LOWER
     public function testKeyToUpperCase()
     {
         $ary = Ary::new(['a' => 0, 'b' => 1]);
@@ -205,6 +207,14 @@ class AryTest extends TestCase
         $this->assertEquals(['a', 'b', 'c', 'd', 'e'], $val->val());
     }
 
+    /**
+     * reset:将指针重置，返回第一个元素
+     * current：放回当前指针元素
+     * next:将指针指向下一个元素，输出
+     * prev
+     * end:将指针指向最后，输出
+     * each将指针指向下一个，返回数组
+     */
     public function testFirst()
     {
         $array = [1, 2, 3];
