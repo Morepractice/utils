@@ -603,6 +603,7 @@ class Ary implements IteratorAggregate, ArrayAccess, Countable, JsonSerializable
 
     /**
      * 判断实例数组是否为关联数组.
+     * 关联数组的key值为0,1,2...
      *
      * @return bool
      */
